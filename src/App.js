@@ -1,21 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { DECREMENT, INCREMENT, INCREMENT_BY } from './redux/actions/actions';
+import { actions } from './redux/store';
 
 function App() {
   const counter = useSelector( ( state ) => state.counter );
   const dispatch = useDispatch();
   const increment = () => {
-    dispatch( { type: INCREMENT } );
+    dispatch( actions.increment() );
   }
 
   const decrement = () => {
-    dispatch( { type: DECREMENT } );
+    dispatch( actions.decrement() );
   }
 
   const incrementBy = ( incrementValue ) => {
-    dispatch( { type: INCREMENT_BY, incrementValue } );
+    dispatch( actions.incrementBy( incrementValue ) );
   }
 
   return (
